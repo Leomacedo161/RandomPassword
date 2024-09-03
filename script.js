@@ -1,7 +1,9 @@
+document.getElementById('generate-btn').addEventListener('click', generateRandomPassword);
+
 function generateRandomPassword() {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+~`|}{[]\\:;?><,./-=';
-    const minLength = 8; // comprimento mínimo da senha
-    const maxLength = 16; // comprimento máximo da senha
+    const minLength = 8; // Minimum password length
+    const maxLength = 16; // Maximum password length
     const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
     let password = '';
     
@@ -13,12 +15,14 @@ function generateRandomPassword() {
     document.getElementById('password').value = password;
 }
 
-
 function copyToClipboard() {
-    const password = document.getElementById('password');
-    navigator.clipboard.writeText(password.value).then(() => {
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-    });
+    const passwordField = document.getElementById('password');
+    if (passwordField.value) {
+        navigator.clipboard.writeText(passwordField.value)
+            .catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+    } else {
+        alert('Please generate a password first!');
+    }
 }
-

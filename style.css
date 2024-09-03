@@ -8,65 +8,92 @@
 body {
     background: #002339;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .container {
-    margin: 12%;
     width: 90%;
     max-width: 700px;
+    text-align: center;
 }
 
 .display {
     width: 100%;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin: 50px 0 30px;
     background: #fff;
     color: #333;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 26px 20px;
-    border-radius: 5px;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.display:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .container h1 {
-    font-weight: 500;
-    font-size: 45px;
+    font-weight: 600;
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .container h1 span {
     color: #019f55;
     border-bottom: 4px solid #019f55;
-    padding-bottom: 7px;
+    padding-bottom: 8px;
 }
 
 .display img {
-    width: 30px;
+    width: 35px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.display img:hover {
+    transform: scale(1.1);
 }
 
 .display input {
     border: 0;
     outline: 0;
-    font-size: 24px;
-}
-
-.container button img {
-    width: 28px;
-    margin-right: 10px;
+    font-size: 26px;
+    flex-grow: 1;
+    margin-left: 10px;
+    color: #333;
 }
 
 .container button {
-    background: #019f55;
+    background: linear-gradient(135deg, #019f55, #01c867);
     color: #fff;
     border: 0;
     outline: 0;
     font-size: 22px;
-    font-weight: 300;
+    font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 26px;
-    border-radius: 5px;
+    padding: 16px 30px;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto; /* Centraliza o botão */
+}
+
+.container button img {
+    width: 30px;
+    margin-right: 12px;
+}
+
+.container button:hover {
+    background: linear-gradient(135deg, #01c867, #019f55);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
