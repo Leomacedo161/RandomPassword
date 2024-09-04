@@ -10,14 +10,29 @@
 
 <body>
     <div class="container">
-        <h1>Generate a<br><span>Random Password</span></h1>
+        <h1>Generate a <br><span>Password</span></h1>
+
         <div class="display">
             <input type="text" id="password" placeholder="Password" readonly>
-            <img onclick="copyToClipboard()" src="images/copy.png" alt="Copy Icon" title="Copy to Clipboard">
+            <img onclick="copyToClipboard()" src="images/copy.png" alt="Copy Icon">
         </div>
+
+        <div class="password-length">
+            <label>Password Length:</label>
+            <input type="range" id="password-length" min="1" max="100" value="12" oninput="updateLengthDisplay(this.value)">
+            <span id="length-display">12</span>
+        </div>
+
+        <div class="character-options">
+            <label><input type="checkbox" id="include-lowercase" checked> <span></span> Lowercase</label>
+            <label><input type="checkbox" id="include-uppercase" checked> <span></span> Uppercase</label>
+            <label><input type="checkbox" id="include-numbers" checked> <span></span> Numbers</label>
+            <label><input type="checkbox" id="include-symbols" checked> <span></span> Symbols</label>
+        </div>
+
         <button id="generate-btn">
             <img src="images/generate.png" alt="Generate Icon">
-            Generate Password
+            Generate
         </button>
     </div>
 
