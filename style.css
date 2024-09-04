@@ -6,13 +6,26 @@
 }
 
 body {
-    background: #002339;
+    background: linear-gradient(135deg, #002339, #00557f);
+    animation: gradient 5s ease infinite;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .container {
@@ -33,6 +46,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+    transition: border 0.3s ease;
 }
 
 .display:hover {
@@ -68,6 +85,24 @@ body {
     flex-grow: 1;
     margin-left: 10px;
     color: #333;
+    animation: shake 0.5s ease;
+}
+
+.display input:focus {
+    border-color: #019f55;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        border-color: #019f55;
+    }
+    50% {
+        border-color: #01c867;
+    }
+    100% {
+        border-color: #019f55;
+    }
 }
 
 .container button {
@@ -85,7 +120,39 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: background 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 auto; /* Centraliza o botão */
+    margin: 0 auto;
+    animation: bounce 1.5s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.container button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75px;
+    width: 50px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: skewX(-20deg);
+    transition: 0.5s;
+}
+
+.container button:hover::before {
+    left: 150%;
+    transition: 0.5s;
 }
 
 .container button img {
@@ -96,4 +163,30 @@ body {
 .container button:hover {
     background: linear-gradient(135deg, #01c867, #019f55);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.display img {
+    position: relative;
+}
+
+.display img:hover::after {
+    content: 'Copy to clipboard';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
