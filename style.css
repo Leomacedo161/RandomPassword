@@ -146,13 +146,13 @@ input[type="range"] {
 .character-options label input:checked + span::after {
     content: "";
     position: absolute;
-    left: 7px;
-    top: 4px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
     width: 5px;
     height: 10px;
     border: solid white;
     border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
 }
 
 .character-options span {
