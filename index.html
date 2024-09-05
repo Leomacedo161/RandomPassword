@@ -19,8 +19,10 @@
 
         <div class="password-length">
             <label>Password Length:</label>
-            <input type="range" id="password-length" min="1" max="100" value="12" oninput="updateLengthDisplay(this.value)">
-            <span id="length-display">12</span>
+            <div class="input-group">
+                <input type="range" id="password-length" min="1" max="100" value="12" oninput="updateLengthDisplay(this.value)">
+                <input type="number" id="password-length-input" min="1" max="100" value="12" oninput="updateRangeDisplay(this.value)">
+            </div>
         </div>
 
         <div class="character-options">
