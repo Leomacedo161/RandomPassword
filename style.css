@@ -30,6 +30,7 @@ body {
     backdrop-filter: blur(15px);
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 h1 {
@@ -38,6 +39,7 @@ h1 {
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 h1 span {
@@ -56,6 +58,11 @@ h1 span {
     border-radius: 12px;
     margin-bottom: 30px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.display:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .display input {
@@ -66,6 +73,18 @@ h1 span {
     color: #333;
     margin-left: 10px;
     background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.display input:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.display input:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
 }
 
 img {
@@ -94,6 +113,7 @@ img:hover {
 input[type="range"],
 input[type="number"] {
     margin-left: 10px;
+    transition: border-color 0.3s ease;
 }
 
 input[type="range"] {
@@ -109,6 +129,12 @@ input[type="number"] {
     border: 2px solid #019f55;
     border-radius: 6px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #01c867;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
 .character-options {
@@ -126,6 +152,11 @@ input[type="number"] {
     position: relative;
     padding-left: 35px;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.character-options label:hover {
+    color: #019f55;
 }
 
 .character-options label input {
@@ -181,7 +212,7 @@ button {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
     margin: 0 auto;
     animation: bounce 1.5s infinite;
 }
@@ -209,10 +240,23 @@ button:hover::before {
 
 button:hover {
     background: linear-gradient(135deg, #01c867, #019f55);
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.3);
 }
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-10px); }
     60% { transform: translateY(-5px); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
